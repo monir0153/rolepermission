@@ -113,7 +113,9 @@
         <!--Container-->
         <div class="w-full md:w-4/5 xl:w-3/5  mx-auto px-2">
           <div class="my-5">
+            @can('create role')
             <a href="{{route('add.role')}}" class="  bg-green-600 text-white rounded-sm p-3">Add Role</a>
+            @endcan
           </div>
 
           <!--Title-->
@@ -145,8 +147,14 @@
                     </div>
                   </td>
                   <td>
+                    @can('edit role')
+                      
                     <a href="{{route('edit.role',$role->id)}}" class=""><i class="fa-regular fa-pen-to-square"></i></a>
+                    @endcan
+                    @can('delete role')
+                      
                     <a href="{{route('delete.role',$role->id)}}" class=""><i class="fa-solid fa-trash"></i></a>
+                    @endcan
                   </td>
                 </tr>
                 @endforeach

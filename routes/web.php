@@ -28,6 +28,9 @@ Route::middleware(['auth', 'verified'])->group( function () {
    Route::get('/all/user', [UserController::class, 'AllUser'])->name('user.index'); 
    Route::get('/add/user', [UserController::class, 'AddUser'])->name('add.user'); 
    Route::post('/store/user', [UserController::class, 'StoreUser'])->name('store.user'); 
+   Route::get('/edit/user/{id}', [UserController::class, 'EditUser'])->name('edit.user'); 
+   Route::post('/update/user/{id}', [UserController::class, 'UpdateUser'])->name('update.user'); 
+   Route::get('/delete/user/{id}', [UserController::class, 'DeleteUser'])->name('delete.user'); 
 });
 Route::middleware(['auth', 'verified'])->group( function () {
    Route::get('all/role', [RoleController::class, 'index'])->name('role'); 

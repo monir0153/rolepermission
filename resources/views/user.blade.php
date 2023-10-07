@@ -113,7 +113,9 @@
         <!--Container-->
         <div class="container w-full md:w-4/5 xl:w-3/5  mx-auto px-2">
           <div class="my-5">
+            @can('create user')
             <a href="{{route('add.user')}}" class="  bg-green-600 text-white rounded-sm p-3">Add User</a>
+            @endcan
           </div>
 
           <!--Title-->
@@ -142,8 +144,15 @@
                   <td><span class="bg-white font-bold text-gray-800 text-sm mr-2 px-2.5 py-0.5 rounded dark:bg-gray-300 dark:text-gray-900 border border-gray-800">{{$role->name}}</span></td>
                   @endforeach
                   <td>
-                    <a href="" class=""><i class="fa-regular fa-pen-to-square"></i></a>
-                    <a href="" class=""><i class="fa-solid fa-trash"></i></a>
+
+                    @can('edit user')
+                    <a href="{{route('edit.user',$user->id)}}" class=""><i class="fa-regular fa-pen-to-square"></i></a>
+                    @endcan
+
+                    @can('delete user')
+                      
+                    <a href="{{route('delete.user',$user->id)}}" class=""><i class="fa-solid fa-trash"></i></a>
+                    @endcan
                   </td>
                 </tr>
                 @endforeach
